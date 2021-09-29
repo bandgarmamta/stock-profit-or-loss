@@ -34,11 +34,11 @@ input{
         align-items: center;
     }
 
-    #output{
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
+#output{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
 

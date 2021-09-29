@@ -1,29 +1,36 @@
-var initialPrice = document.querySelector("#initial-price");
-var stocksQuantity = document.querySelector("#stocksquantity");
-var currentPrice = document.querySelector("#current-price");
-var submitBtn = document.querySelector("#submit-btn");
-var outputEl = document.querySelector("#output");
+const inputUser = document.querySelectorAll(".input-user");
+const btnSubmit = document.querySelector("#btn-submit");
+const outputelement = document.querySelector("#output");
 
-function calculateProfitAndLoss(initial, quantity, current) {
-  if (initial > current) {
-    var loss = (initial - current) * quantity;
-    var lossPercentage = (loss / initial) * 100;
-    outputEl.textContent =
-      "You have lost " + loss + " Your loss perscentage is " + lossPercentage + "%";
-  } else if (current > initial) {
-    var profit = (current - initial) * quantity;
-    var profitPercentage = (profit / initial) * 100;
-    outputEl.textContent =
-      "You have gained " + profit + " Your profit percentage is " + profitPercentage+"%" ;
-  } else {
-    outputEl.textContent = "No gain no pain";
-  }
-}
-function checkProfitOrLoss() {
-  var ip = Number(initialPrice.value);
-  var qty = Number(stocksQuantity.value);
-  var cp = Number(currentPrice.value);
-  calculateProfitAndLoss(ip, qty, cp);
-}
+btnSubmit.addEventListener("click", function calculate() {
 
-submitBtn.addEventListener("click", checkProfitOrLoss);
+    if (Number(inputUser[0].value) === 0 || Number(inputUser[1].value) === 0 || Number(inputUser[2].value) === 0) {
+        outputelement.innerText = "Please enter values in all input fields";
+    } else {
+
+        const prevalue = Number(inputUser[0].value) * Number(inputUser[1].value);
+
+        const currvalue = Number(inputUser[2].value) * Number(inputUser[1].value);
+
+        const result = currvalue - prevalue;
+        console.log(result);
+        const percent = (Math.abs(result)/prevalue) *100;
+
+        if (result > 0) {
+            outputelement.innerText = "Yippee!! You gained profit of Rs." + result + " and your profit percentage is " + percent + "% ";
+        } 
+        else {
+            if(result < 0){
+
+                outputelement.innerText = "Oops!! You gained loss of Rs." + Math.abs(result) + " and your loss percentage is " + Math.abs(percent) + "% ";
+            }
+            else{
+                outputelement.innerText = "No Profit, No Loss.";
+            }
+            
+        }
+
+    }
+
+
+});
