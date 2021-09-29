@@ -9,14 +9,14 @@ function calculateProfitAndLoss(initial, quantity, current) {
     var loss = (initial - current) * quantity;
     var lossPercentage = (loss / initial) * 100;
     outputEl.textContent =
-      "You lost " + lossPercentage + "%. Your total loss is " + loss;
+      "You have lost " + loss + "Your loss perscentage is " + lossPercentage + "%";
   } else if (current > initial) {
     var profit = (current - initial) * quantity;
     var profitPercentage = (profit / initial) * 100;
     outputEl.textContent =
-      "You gained " + profitPercentage + "%. Your total profit is " + profit;
+      "You have gained " + profit + "Your profit percentage is " + profitPercentage+"%" ;
   } else {
-    outputEl.textContent = "No profit no loss";
+    outputEl.textContent = "No gain no pain";
   }
 }
 function checkProfitOrLoss() {
